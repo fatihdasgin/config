@@ -50,6 +50,10 @@ sub vcl_recv {
         return (pass);
     }
 
+    if (req.url ~ "/check") {
+        return(synth(200, "OK"));
+    }
+
     if (req.url ~ "/admin") {
         return(pass);
     }
