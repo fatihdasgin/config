@@ -31,7 +31,7 @@ sub vcl_recv {
                   return(synth(403, "Not allowed."));
           }
           ban("req.http.host == " + req.http.host +
-                " && req.url == " + req.url);
+                " && req.url ~ " + req.url);
           return(synth(200, "Ban added"));
   }
 
